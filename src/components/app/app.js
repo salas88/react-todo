@@ -4,10 +4,13 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter'
+import AddNewItem from '../add-new-item';
 
 import './app.css'
 
 export default class App extends Component {
+
+  maxId = 100;
 
   state = {
     todoDate: [
@@ -30,6 +33,27 @@ export default class App extends Component {
       }
     })
   }
+   
+  
+
+  addItem = () => {
+    this.setState(({todoDate}) => {
+
+      let generateId = 100;
+      const item = {
+        label: 'Drink coffee', important: false, id: this.maxId++
+      }
+      
+      const newArray2 = [
+        ...todoDate, item
+      ]
+
+      return {
+        todoDate: newArray2
+      }
+
+    })  
+  }
 
   render() {
     return (
@@ -40,8 +64,10 @@ export default class App extends Component {
         <ItemStatusFilter />
       </div>
         <TodoList todos = {this.state.todoDate} 
-        onDeleted = { this.deleteItem }/>
-    </div>
+          onDeleted = { this.deleteItem }/>
+        <AddNewItem addItem = { this.addItem }/>
+     </div>
+     
     );
   }
 
