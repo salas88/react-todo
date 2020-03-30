@@ -5,15 +5,21 @@ import { render } from 'react-dom';
 
 export default class ItemStatusFilter extends Component{
 
+   
+     
+
     render(){
+
+        let aa = 'btn btn-outline-secondary';
         return (
-            <div className="btn-group">
+            <div className="btn-group active">
                 <button type="button"
-                    className="btn btn-info">All</button>
+                className={aa} 
+                >All</button>
                 <button type="button"
-                  className="btn btn-outline-secondary">Active</button>
+                  className= {aa}>Active</button>
                 <button type="button"
-                  className="btn btn-outline-secondary">Done</button>
+                  className={aa}>Done</button>
             </div>
         );
     }
