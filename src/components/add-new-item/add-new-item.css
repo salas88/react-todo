@@ -1,3 +1,6 @@
 .add-new-item .form-control {
-    width: auto;
+    margin-right: 10px;
+}
+.add-new-item {
+    margin-top: 5px;
 }
